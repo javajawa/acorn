@@ -11,7 +11,6 @@ namespace Acorn;
 define('TOP_PATH', realpath(dirname(__FILE__) . '/..') . DIRECTORY_SEPARATOR);
 define('SYSTEM_PATH',  TOP_PATH    . 'acorn'       . DIRECTORY_SEPARATOR);
 define('PROJECT_PATH', TOP_PATH    . PROJECT_NAME  . DIRECTORY_SEPARATOR);
-define('PLUGIN_PATH',  SYSTEM_PATH . 'plugins'     . DIRECTORY_SEPARATOR);
 
 // Load the Main utility class
 require(SYSTEM_PATH . 'Acorn.php');
@@ -19,7 +18,6 @@ require(SYSTEM_PATH . 'Acorn.php');
 // Configure the class auto-loader
 Acorn::addClassPath(SYSTEM_PATH . '%c.php', '\Acorn\\');
 Acorn::addClassPath(SYSTEM_PATH . 'stubs/%c.php', '\Acorn\\');
-Acorn::addClassPath(PLUGIN_PATH . '%c.php', '\\Acorn\\');
 spl_autoload_register('\Acorn\Acorn::loadClass');
 
 // Get the requested URL
