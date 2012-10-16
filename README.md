@@ -13,25 +13,26 @@ Using Acorn
 Acorn is designed to be deployed outside of the document root of your webserver,
 with the intent of reducing the possibly script vulnerabilities.
 
-If we consider an application called 'blog', the reconneded folder structure is
+If we consider an application called 'example', the reconneded folder structure is
 roughly
-
- - /non/public/path
-  - blog
-  - acorn
-
- - /srv/www
-  - blog.php
-
+```
+	- /non/public/path
+		- example/
+			- site.php
+			- ...
+		- acorn/
+	- /srv/www
+		- blog.php
+```
 Where /non/public/path is the path to some location that will never be directly
 served, and blog.php would contain the code
 
-{{{
+```php
 <?php
-	define('PROJECT_NAME', 'blog');
-	reuiqre('/non/public/path/acorn/bootstrap.php');
+	define('PROJECT_NAME', 'exmaple');
+	require('/non/public/path/acorn/bootstrap.php');
 
-}}}
+```
 
 Is This Code Mature?
 --------------------
