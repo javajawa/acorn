@@ -14,6 +14,8 @@ define('PROJECT_PATH', TOP_PATH    . PROJECT_NAME  . DIRECTORY_SEPARATOR);
 
 define('WWW_PATH', trim($_SERVER['HTTP_HOST'] . getenv('PUBLIC_PATH'), '/'));
 
+define('DEBUG', false !== getenv('DEBUG'));
+
 // Load the Main utility class
 require(SYSTEM_PATH . 'Acorn.php');
 
@@ -71,4 +73,3 @@ set_exception_handler(array(&$controller, 'handleException'));
 $controller->before();
 $controller->{$route->method}();
 $controller->after();
-

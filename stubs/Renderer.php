@@ -12,7 +12,10 @@ abstract class Renderer
 
 	public final function render($indent = 0)
 	{
-		return $this->indent($this->doRender(), $indent);
+		if (DEBUG)
+			$this->indent($this->doRender(), $indent);
+		else
+			return $this->doRender();
 	}
 
 	/**
@@ -24,6 +27,9 @@ abstract class Renderer
 	 */
 	protected function indent($str, $amount)
 	{
+		if (!DEBUG)
+			return $str;
+
 		$indent = str_repeat("\t", $amount);
 		return $indent . preg_replace("/\n(.)/", PHP_EOL . $indent . '$1', $str);
 	}
