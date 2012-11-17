@@ -12,6 +12,8 @@ define('TOP_PATH', realpath(dirname(__FILE__) . '/..') . DIRECTORY_SEPARATOR);
 define('SYSTEM_PATH',  TOP_PATH    . 'acorn'       . DIRECTORY_SEPARATOR);
 define('PROJECT_PATH', TOP_PATH    . PROJECT_NAME  . DIRECTORY_SEPARATOR);
 
+define('WWW_PATH', trim($_SERVER['HTTP_HOST'] . getenv('PUBLIC_PATH'), '/'));
+
 // Load the Main utility class
 require(SYSTEM_PATH . 'Acorn.php');
 
