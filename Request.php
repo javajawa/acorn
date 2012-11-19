@@ -11,12 +11,18 @@ class Request
 	protected static $params = array();
 	protected static $query;
 	protected static $post;
+	protected static $referer;
 
 	static function construct($url, $post, $query)
 	{
 		self::$url = $url;
 		self::$post  = self::arrayToObject($post);
 		self::$query = self::arrayToObject($query);
+
+		if (array_key_exists('HTTP_REFERER', $_SERVER))
+			self::$referer = $_SERVER['HTTP_REFERER'];
+		else
+			self::$referer = '';
 	}
 
 	protected static function setParams(Route $route)
@@ -53,6 +59,16 @@ class Request
 	public static function post()
 	{
 		return self::$post;
+	}
+
+	/**
+	 * <p>Returns the full URL of the referer (if known)</p>
+	 * @return string the reuqest url
+	 * @package Acorn
+	 */
+	public static function referer()
+	{
+		return self::$url;
 	}
 
 	/**
