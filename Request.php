@@ -68,7 +68,7 @@ class Request
 	 */
 	public static function referer()
 	{
-		return self::$url;
+		return self::$referer;
 	}
 
 	/**
