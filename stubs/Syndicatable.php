@@ -7,7 +7,7 @@ interface Syndicatable
 	public function lastUpdated();
 	public function title();
 	public function authorName();
-	public function description($view);
-	public function content($view);
+	public function description();
+	public function content();
 }
 
