@@ -109,16 +109,9 @@ class Route
 	{
 		// Replace the argument sections of the route's path with regex code
 		// that will match them using names matches.
-
-		// First, there is the special case of ?... which is matched with the
-		// regex ((?'args'[^/]+)/)+
-		$path = preg_replace('@/(\?\.\.\.)/@i', '/((?\'args\'[^/]+)/)+', $path);
-		$path = preg_replace('@/(\?\.\.\.)$@i', '/((?\'args\'[^/]+)(/|$))+', $path);
-
-		// Then, there are the standard route paramters, such as ?page
 		// ?page has to be converted to (?'page'[^/]+)/
-		$path = preg_replace('@/\?(\w+)/@i',    '/(?\'\1\'[^/]+)/',   $path);
-		$path = preg_replace('@/\?(\w+)$@i',    '/(?\'\1\'[^/]+)',    $path);
+		$path = preg_replace('@/\?([^/]+)/@i',    '/(?\'\1\'[^/]+)/',   $path);
+		$path = preg_replace('@/\?([^/]+)$@i',    '/(?\'\1\'[^/]+)',    $path);
 
 		// Allow a trailing slash in the URI
 		if ('/' !== substr($path, -1))
