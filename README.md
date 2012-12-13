@@ -29,8 +29,9 @@ served, and blog.php would contain the code
 
 ```php
 <?php
-	define('PROJECT_NAME', 'exmaple');
-	require('/non/public/path/acorn/bootstrap.php');
+        define('PROJECT_PATH', '/var/acorn-projects/mangler/');
+
+	require('/var/acorn/bootstrap.php');
 
 ```
 
