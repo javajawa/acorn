@@ -8,7 +8,7 @@ class Acorn
 	/**
 	 * <p>Loads classes dynamically</p>
 	 * <p>Classes in the namespace acorn are searched for in ACORN_PATH and then
-	 * PLUIN_PATH.</p>
+	 * PLUGIN_PATH.</p>
 	 * @param string $class the class name
 	 * @return boolean whether the file was found.
 	 */
