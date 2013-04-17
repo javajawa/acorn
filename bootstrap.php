@@ -70,5 +70,5 @@ set_exception_handler(array(&$controller, 'handleException'));
 
 // Run the action requested
 $controller->before();
-$controller->{$route->method}();
+$controller->{$route->action}();
 $controller->after();

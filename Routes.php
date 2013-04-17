@@ -25,7 +25,7 @@ class Routes
 	static function routeFor($path)
 	{
 		foreach (self::$routes as $route)
-			if (true === $route->match($path))
+			if (true === $route->match($path) && $route->exists())
 				return $route;
 
 		return null;
@@ -91,6 +91,14 @@ class Route
 			else
 				return null;
 		}
+		if ('action' === $name)
+		{
+			if (!empty($this->method))
+				return $this->method;
+
+			$matches = $this->getMatches();
+			return is_array($matches['method']) ? current($matches['method']) : $matches['method'];
+		}
 
 		return isset($this->$name) ? $this->$name : null;
 	}
@@ -150,7 +158,7 @@ class Route
 		else
 			return false;
 
-		if (false === method_exists($class, $this->method))
+		if (false === method_exists($class, $this->action))
 			return false;
 
 		return true;
