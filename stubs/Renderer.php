@@ -3,17 +3,10 @@ namespace Acorn;
 
 abstract class Renderer
 {
-	protected $view;
-
-	public function __construct($view)
-	{
-		$this->view = $view;
-	}
-
 	public final function render($indent = 0)
 	{
 		if (DEBUG)
-			$this->indent($this->doRender(), $indent);
+			return $this->indent($this->doRender(), $indent);
 		else
 			return $this->doRender();
 	}
