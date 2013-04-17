@@ -81,6 +81,11 @@ class Request
 		return self::$url;
 	}
 
+	public static function method()
+	{
+		return $_SERVER['REQUEST_METHOD'];
+	}
+
 	/**
 	 * <p>Map this request to a route using the routign table</p>
 	 * @return Route returns the route which matches this request
